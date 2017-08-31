@@ -224,13 +224,9 @@
   /**
    * FUNCTIONS
    * =========
-   *
-   * Now we're getting into function decorators, which take in any function
-   * and return out a new version of the function that works somewhat differently
    */
 
-  // Return a function that can be called at most one time. Subsequent calls
-  // should return the previously returned value.
+  // Return a function that can be called at most one time. Subsequent calls should return the previously returned value.
   _.once = function(func) {
     // TIP: These variables are stored in a "closure scope" (worth researching),
     // so that they'll remain available to the newly-generated function every
@@ -252,14 +248,7 @@
     };
   };
 
-  // Memorize an expensive function's results by storing them. You may assume
-  // that the function takes only one argument and that it is a primitive.
-  // memoize could be renamed to oncePerUniqueArgumentList; memoize does the
-  // same thing as once, but based on many sets of unique arguments.
-  //
-  // _.memoize should return a function that, when called, will check if it has
-  // already computed the result for the given argument and return that value
-  // instead if possible.
+  // Memorize an expensive function's results by storing them.
   _.memoize = function(func) {
     var cache = {};
     return function() {
@@ -289,9 +278,6 @@
 
   // Randomizes the order of an array's contents.
   //
-  // TIP: This function's test suite will ask that you not modify the original
-  // input array. For a tip on how to make a copy of an array, see:
-  // http://mdn.io/Array.prototype.slice
   _.shuffle = function(array) {
    var clone = array.slice(0);
    var rand, temp;
