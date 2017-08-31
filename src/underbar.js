@@ -101,18 +101,12 @@
         results.push(iterator(item))
     })
     return results;
-    // map() is a useful primitive iteration function that works a lot
-    // like each(), but in addition to running the operation on all
-    // the members, it also maintains an array of results.
   };
 
   // Takes an array of objects and returns and array of the values of
   // a certain property in it. E.g. take an array of people and return
   // an array of just their ages
   _.pluck = function(collection, key) {
-    // TIP: map is really handy when you want to transform an array of
-    // values into a new array of values. _.pluck() is solved for you
-    // as an example of this.
     return _.map(collection, function(item){
       return item[key];
     });
@@ -152,8 +146,7 @@
 
   // Determine if the array or object contains a given value (using `===`).
   _.contains = function(collection, target) {
-    // TIP: Many iteration problems can be most easily expressed in
-    // terms of reduce(). Here's a freebie to demonstrate!
+    // We can use reduce:
     return _.reduce(collection, function(wasFound, item) {
       if (wasFound) {
         return true;
@@ -163,9 +156,8 @@
   };
 
 
-  // Determine whether all of the elements match a truth test.
+  // Determine whether all of the elements match a truth test. If no iterator is passed in, we simply check if the item returns a true value
   _.every = function(collection, iterator) {
-    // TIP: Try re-using reduce() here.
     if (iterator === undefined) {
       iterator = function (item) {return item === true;}
     }
@@ -192,8 +184,6 @@
   /**
    * OBJECTS
    * =======
-   *
-   * In this section, we'll look at a couple of helpers for merging objects.
    */
 
   // Extend a given object with all the properties of the passed in
