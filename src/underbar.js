@@ -278,6 +278,9 @@
 
   // Randomizes the order of an array's contents.
   //
+  // TIP: This function's test suite will ask that you not modify the original
+  // input array. For a tip on how to make a copy of an array, see:
+  // http://mdn.io/Array.prototype.slice
   _.shuffle = function(array) {
    var clone = array.slice(0);
    var rand, temp;
@@ -302,6 +305,16 @@
   // Calls the method named by functionOrKey on each value in the list.
   // Note: You will need to learn a bit about .apply to complete this.
   _.invoke = function(collection, functionOrKey, args) {
+        return _.map(collection, function (item) {
+        var method;
+        if (typeof functionOrKey === 'string') {
+            method = item[functionOrKey];
+        }
+        else {
+            method = functionOrKey;
+        }
+    });
+    return method.apply(item, args);
   };
 
   // Sort the object's values by a criterion produced by an iterator.
