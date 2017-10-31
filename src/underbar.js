@@ -82,15 +82,16 @@
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array) {
-    var uniqueArray = [];
-    var trackerObj = {}; //use a tracker object to remember what we have seen in the array previously.
-    for (var i = 0; i < array.length; i ++) {
-      trackerObj[array[i]] = array[i]
-    };
-    for (var key in trackerObj) {
-      uniqueArray.push(trackerObj[key])
-    }
-  return uniqueArray;
+    var uniqueArray = [];    
+    var trackerObj = {}; //use a tracker object to remember what we have seen in the array previously.    
+    _.each(array, function (item){
+      if (!trackerObj[item]) {
+        trackerObj[item] = item
+        uniqueArray.push(item)
+      }
+
+    })
+    return uniqueArray;
   };
 
 
